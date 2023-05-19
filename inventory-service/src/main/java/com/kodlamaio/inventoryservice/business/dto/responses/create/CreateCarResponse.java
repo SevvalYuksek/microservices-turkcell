@@ -1,6 +1,6 @@
 package com.kodlamaio.inventoryservice.business.dto.responses.create;
 
-import com.kodlamaio.inventoryservice.enums.State;
+import com.kodlamaio.inventoryservice.entities.enums.State;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +13,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateCarResponse {
-
     private UUID id;
     private UUID modelId;
     private int modelYear;
@@ -21,3 +20,4 @@ public class CreateCarResponse {
     private State state;
     private double dailyPrice;
 }
+

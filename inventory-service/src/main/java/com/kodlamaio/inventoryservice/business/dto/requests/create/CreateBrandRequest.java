@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.UUID;
-
 @Setter
 @Getter
 @NoArgsConstructor
@@ -18,4 +16,3 @@ public class CreateBrandRequest {
     @Size(min = 2, max = 20)
     private String name;
 }
-

@@ -1,6 +1,6 @@
 package com.kodlamaio.inventoryservice.entities;
 
-import com.kodlamaio.inventoryservice.enums.State;
+import com.kodlamaio.inventoryservice.entities.enums.State;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,5 +28,4 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "model_id")
     private Model model;
-
 }
