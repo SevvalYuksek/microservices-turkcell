@@ -2,7 +2,7 @@ package com.kodlamaio.inventoryservice.business.dto.requests.update;
 
 import com.kodlamaio.commonpackage.utils.annotations.NotFutureYear;
 import com.kodlamaio.commonpackage.utils.constants.Regex;
-import com.kodlamaio.inventoryservice.entities.enums.State;
+import com.kodlamaio.commonpackage.utils.enums.CarState;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -28,7 +28,7 @@ public class UpdateCarRequest {
     @Pattern(regexp = Regex.Plate)
     private String plate;
     @NotNull
-    private State state;
+    private CarState state;
     @Min(value = 1)
     private double dailyPrice;
 }

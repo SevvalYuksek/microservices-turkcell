@@ -1,13 +1,11 @@
 package com.kodlamaio.filterservice.api.controllers;
 
+import com.kodlamaio.commonpackage.utils.dto.ChangeCarStateRequest;
 import com.kodlamaio.filterservice.business.abstracts.FilterService;
 import com.kodlamaio.filterservice.business.dto.responses.GetAllFiltersResponse;
 import com.kodlamaio.filterservice.business.dto.responses.GetFilterResponse;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -26,5 +24,10 @@ public class FiltersController {
     @GetMapping("/{id}")
     public GetFilterResponse getByIId(@PathVariable UUID id) {
         return service.getById(id);
+    }
+
+    @PutMapping("/change-car-state")
+    public void changeCarState(@RequestBody ChangeCarStateRequest request) {
+        service.changeStateByCarId(request.getCarId(), request.getCarState());
     }
 }

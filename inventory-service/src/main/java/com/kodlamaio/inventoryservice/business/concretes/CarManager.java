@@ -15,7 +15,7 @@ import com.kodlamaio.inventoryservice.business.dto.responses.get.GetCarResponse;
 import com.kodlamaio.inventoryservice.business.dto.responses.update.UpdateCarResponse;
 import com.kodlamaio.inventoryservice.business.rules.CarBusinessRules;
 import com.kodlamaio.inventoryservice.entities.Car;
-import com.kodlamaio.inventoryservice.entities.enums.State;
+import com.kodlamaio.commonpackage.utils.enums.CarState;
 import com.kodlamaio.inventoryservice.repository.CarRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -55,7 +55,7 @@ public class CarManager implements CarService {
     public CreateCarResponse add(CreateCarRequest request) {
         var car = mapper.forRequest().map(request, Car.class);
         car.setId(UUID.randomUUID());
-        car.setState(State.Available);
+        car.setState(CarState.Available);
         var createdCar = repository.save(car);
         sendKafkaCarCreatedEvent(createdCar);
         var response = mapper.forResponse().map(createdCar, CreateCarResponse.class);
@@ -90,8 +90,8 @@ public class CarManager implements CarService {
     }
 
     @Override
-    public void changeStateByCarId(State state, UUID id) {
-        repository.changeStateByCarId(state, id);
+    public void changeStateByCarId(UUID id, CarState state) {
+        repository.changeStateByCarId(id,state);
     }
 
     private void sendKafkaCarCreatedEvent(Car createdCar) {

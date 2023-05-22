@@ -4,11 +4,11 @@ spring:
   data:
     mongodb:
       database: filterdb-t1
-      uri: mongodb://http://localhost:9010/
+      uri: mongodb://localhost:27017
   kafka:
     consumer:
       auto-offset-reset: earliest
-      bootstrap-servers: http://localhost:9010/
+      bootstrap-servers: localhost:9092
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       properties:
         spring:

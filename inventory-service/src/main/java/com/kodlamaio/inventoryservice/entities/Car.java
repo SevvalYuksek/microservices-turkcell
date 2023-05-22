@@ -1,6 +1,6 @@
 package com.kodlamaio.inventoryservice.entities;
 
-import com.kodlamaio.inventoryservice.entities.enums.State;
+import com.kodlamaio.commonpackage.utils.enums.CarState;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,7 +22,7 @@ public class Car {
     private int modelYear;
     private String plate;
     @Enumerated(EnumType.STRING)
-    private State state;
+    private CarState state;
     private double dailyPrice;
 
     @ManyToOne

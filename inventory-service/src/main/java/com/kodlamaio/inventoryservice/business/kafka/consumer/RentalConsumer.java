@@ -2,8 +2,8 @@ package com.kodlamaio.inventoryservice.business.kafka.consumer;
 
 import com.kodlamaio.commonpackage.events.rental.RentalCreatedEvent;
 import com.kodlamaio.commonpackage.events.rental.RentalDeletedEvent;
+import com.kodlamaio.commonpackage.utils.enums.CarState;
 import com.kodlamaio.inventoryservice.business.abstracts.CarService;
-import com.kodlamaio.inventoryservice.entities.enums.State;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -20,7 +20,7 @@ public class RentalConsumer {
             groupId = "inventory-rental-create"
     )
     public void consume(RentalCreatedEvent event) {
-        service.changeStateByCarId(State.Rented, event.getCarId());
+        service.changeStateByCarId(event.getCarId(), CarState.Rented);
         log.info("Rental created event consumed {}", event);
     }
 
@@ -29,7 +29,7 @@ public class RentalConsumer {
             groupId = "inventory-rental-delete"
     )
     public void consume(RentalDeletedEvent event) {
-        service.changeStateByCarId(State.Available, event.getCarId());
+        service.changeStateByCarId(event.getCarId(), CarState.Available);
         log.info("Rental deleted event consumed {}", event);
     }
 }
