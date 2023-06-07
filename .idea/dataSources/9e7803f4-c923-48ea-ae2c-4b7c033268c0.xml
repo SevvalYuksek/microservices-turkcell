@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="postgres@localhost">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.48">
+    <root id="1">
+      <ServerVersion>15.2</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="postgres">
+      <Current>1</Current>
+    </database>
+    <database id="3" parent="1" name="northwind"/>
+    <database id="4" parent="1" name="template1"/>
+    <database id="5" parent="1" name="template0"/>
+    <database id="6" parent="1" name="turkcell-rentacardb"/>
+    <database id="7" parent="1" name="turkcell-ecommercedb"/>
+    <database id="8" parent="1" name="turkcell-inventorydb"/>
+    <database id="9" parent="1" name="turkcell-rentaldb"/>
+    <database id="10" parent="1" name="turkcell-paymentdb"/>
+    <schema id="11" parent="2" name="information_schema"/>
+    <schema id="12" parent="2" name="pg_catalog"/>
+    <schema id="13" parent="2" name="public">
+      <Current>1</Current>
+    </schema>
+    <schema id="14" parent="3" name="information_schema"/>
+    <schema id="15" parent="3" name="pg_catalog"/>
+    <schema id="16" parent="3" name="public">
+      <Current>1</Current>
+    </schema>
+  </database-model>
+</dataSource>
